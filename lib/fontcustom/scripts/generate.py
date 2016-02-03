@@ -69,6 +69,8 @@ def createGlyph( name, source, code ):
 
         if options['autowidth']:
             glyph.left_side_bearing = glyph.right_side_bearing = 0
+            if glyph.width < options['font_em']:
+              glyph.left_side_bearing = glyph.right_side_bearing = (options['font_em'] - glyph.width) / 2
             glyph.round()
         else:
             glyph.width = options['font_em']
